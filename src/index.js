@@ -22,6 +22,7 @@ function crossEnv(args, options = {}) {
     process.on('SIGINT', () => proc.kill('SIGINT'))
     process.on('SIGBREAK', () => proc.kill('SIGBREAK'))
     process.on('SIGHUP', () => proc.kill('SIGHUP'))
+    process.on('exit', () => proc.kill('SIGINT'))
     proc.on('exit', process.exit)
     return proc
   }
